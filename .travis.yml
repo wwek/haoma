@@ -1,0 +1,33 @@
+language: go
+go: master
+node_js: "node"
+cache:
+  directories:
+    - "node_modules"
+env:
+  - VERSION=$(cat VERSION)
+before_deploy:
+  - "cd frontend"
+  - "npm install"
+  - "npm run build"
+  - "cd .."
+  - "GOOS=linux  GOARCH=amd64 go build -o haoma-v$VERSION-linux-amd64"
+  - "GOOS=darwin GOARCH=amd64 go build -o haoma-v$VERSION-darwin-amd64"
+  - "GOOS=windows GOARCH=amd64 go build -o haoma-v$VERSION-windows-amd64.exe"
+  - "tar -cvzf haoma-v$VERSION-linux-amd64.tar.gz haoma-v$VERSION-linux-amd64 gui/ conf/"
+  - "tar -cvzf haoma-v$VERSION-darwin-amd64.tar.gz haoma-v$VERSION-darwin-amd64 gui/ conf/"
+  - "tar -cvzf haoma-v$VERSION-windows-amd64.tar.gz haoma-v$VERSION-windows-amd64.exe gui/ conf/"
+notifications:
+  email:
+    - licoolgo@gmail.com
+deploy:
+  provider: releases
+  api_key:
+    secure: iri3GZDwHvil6/F2MV/oK5d9q+FcVg9AZ8y6z4otDIThNBhhxJ57Ys9pfw/yxVbf3ev0lGDtZSiezj3xnCrRt64JgDo9oOD22dMGhMjqRvwnbAK1sSOeVfTY6hNmJeqrOus9PU+bdOitLnW6MLuXExSF5XIOT2c23ZFFVUJ/tWLPG41od25Qfi1be9CDqd4zEeB7FyxA5y4xM06dmasmZTDsrwUfcM9Fx0lVN1hNaFV2XuDB74eYsp9aBNjgAfTYl4Y1TawHBVPMLgXlr36lNtuQIBEHHUAohSMKN5WW8sTX9TOSXTjSIEH52dJeHdY8YQVo+TxvI43Mw6eQbqHeFjO8xB6FCWlZza3y9B4VRCMivqYqZ64zqB9vvzKwcDxV9DBYKeZCABs8Xddui4gNTYStRESjF4FFRcv0e8rLSIrVR9QexgwWmaona6OYkn6zHIJJ41Qy/JOjhx/ZdAN+d9bRCaLE507VYdub84Uk3ZOC+JllqsgeZpPERPNeREiTIWWMuKRNyJ0mbtWjmnlvg7Qk9+cNemGZLKBZP7rgpOOxXLmsQ3t2BLy2McMyoNm9885Ttm9P6E8FR37G00CJbhq05LHB64u7CNo68MFlI+FEnP5SFMg9LIfH8B6+7oTH9add85UTJi/a5BA0JKOdesWQ9EAZ5jvu5BW1b2NDSOQ=
+  file:
+    - "haoma-v$VERSION-linux-amd64.tar.gz"
+    - "haoma-v$VERSION-darwin-amd64.tar.gz"
+    - "haoma-v$VERSION-windows-amd64.tar.gz"
+  skip_cleanup: true
+  on:
+    tags: true

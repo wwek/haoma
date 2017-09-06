@@ -1,0 +1,66 @@
+hash: 887cd8c97d5e42da237f718dd1a24e0173f61672c9935b0641078f5614821e22
+updated: 2017-08-28T13:31:13.0277172+08:00
+imports:
+- name: github.com/andybalholm/cascadia
+  version: 349dd0209470eabd9514242c688c403c0926d266
+- name: github.com/antchfx/xpath
+  version: b5c552e1acbdd77b5e369eab0efd1e0f9d7090e4
+- name: github.com/antchfx/xquery
+  version: eb8c3c17260731e52f9420af1508a47bfaf217a8
+  subpackages:
+  - html
+- name: github.com/astaxie/beego
+  version: d96289a81bf67728cff7a19b067aaecc65a62ec6
+  subpackages:
+  - config
+  - context
+  - context/param
+  - grace
+  - logs
+  - session
+  - toolbox
+  - utils
+- name: github.com/PuerkitoBio/goquery
+  version: ce645ea5e67a713599b7415f21f0786451fa9554
+- name: golang.org/x/net
+  version: 57efc9c3d9f91fb3277f8da1cff370539c4d3dc5
+  subpackages:
+  - html
+  - html/atom
+  - html/charset
+- name: golang.org/x/text
+  version: ac87088df8ef557f1e32cd00ed0b6fbc3f7ddafb
+  subpackages:
+  - encoding
+  - encoding/charmap
+  - encoding/htmlindex
+  - encoding/internal
+  - encoding/internal/identifier
+  - encoding/japanese
+  - encoding/korean
+  - encoding/simplifiedchinese
+  - encoding/traditionalchinese
+  - encoding/unicode
+  - internal/tag
+  - internal/utf8internal
+  - language
+  - runes
+  - transform
+testImports:
+- name: github.com/gopherjs/gopherjs
+  version: f7c56533adfac99e12ccdccfec04a466d2a778da
+  subpackages:
+  - js
+- name: github.com/jtolds/gls
+  version: 77f18212c9c7edc9bd6a33d383a7b545ce62f064
+- name: github.com/smartystreets/assertions
+  version: 9c0ea8acbc1d8ad689f9e6fe0c1fa5838e0cabc2
+  subpackages:
+  - internal/go-render/render
+  - internal/oglematchers
+- name: github.com/smartystreets/goconvey
+  version: e5b2b7c9111590d019a696c7800593f666e1a7f4
+  subpackages:
+  - convey
+  - convey/gotest
+  - convey/reporting

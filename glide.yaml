@@ -1,0 +1,11 @@
+package: github.com/wwek/haoma
+import:
+- package: github.com/PuerkitoBio/goquery
+- package: github.com/antchfx/xquery
+  subpackages:
+  - html
+- package: github.com/astaxie/beego
+testImport:
+- package: github.com/smartystreets/goconvey
+  subpackages:
+  - convey

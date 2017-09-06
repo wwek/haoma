@@ -1,0 +1,44 @@
+.idea
+.vscode
+.DS_Store
+*.swp
+*.swo
+haoma
+swagger
+swagger.zip
+lastupdate.tmp
+haoma.exe*
+haoma.tar.gz
+haoma.zip
+debug
+tests/
+routers/commentsRouter__________Projects_go_src_github_com_wwek_haoma_controllers.go
+npm-debug.log
+gui/
+
+# vendor
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
+*.exe
+*.test
+*.prof
