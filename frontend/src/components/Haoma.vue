@@ -128,9 +128,8 @@
             }
           })
             .then(function (response) {
-              var oneData = that.apiToRow(response.data.data)
-              console.log(that.tableData)
-              console.log(oneData)
+              var oneData = that.apiToRow(response.data.data, pn)
+              // console.log(oneData)
               that.tableData.push(oneData)
             })
             .catch(function (error) {
@@ -138,21 +137,34 @@
             })
         }
       },
-      apiToRow (rdata) {
+      apiToRow (rdata, pn) {
         var oneData = {}
-        oneData.phone_number = rdata[0].phone_number
-        oneData.from1 = rdata[0].from
-        oneData.location1 = rdata[0].location.province + ' ' + rdata[0].location.city
-        oneData.tag_name1 = rdata[0].tag.tag_name
-        oneData.tag_cnt1 = rdata[0].tag.tag_cnt
-        oneData.from2 = rdata[1].from
-        oneData.location2 = rdata[1].location.province + ' ' + rdata[1].location.city
-        oneData.tag_name2 = rdata[1].tag.tag_name
-        oneData.tag_cnt2 = rdata[1].tag.tag_cnt
-        oneData.from3 = rdata[2].from
-        oneData.location3 = rdata[2].location.province + ' ' + rdata[2].location.city
-        oneData.tag_name3 = rdata[2].tag.tag_name
-        oneData.tag_cnt3 = rdata[2].tag.tag_cnt
+        if (typeof rdata[0].phone_number !== 'undefined') {
+          oneData.phone_number = rdata[0].phone_number
+        } else {
+          oneData.phone_number = pn
+        }
+        if (typeof rdata[0] !== 'undefined') {
+          oneData.from1 = rdata[0].from || ' '
+          oneData.location1 = rdata[0].location.province + ' ' + rdata[0].location.city || ' '
+          oneData.tag_name1 = rdata[0].tag.tag_name || ' '
+          oneData.tag_cnt1 = rdata[0].tag.tag_cnt || ' '
+        }
+        if (typeof rdata[1] !== 'undefined') {
+          oneData.from2 = rdata[1].from || ' '
+          oneData.location2 = rdata[1].location.province + ' ' + rdata[1].location.city || ' '
+          oneData.tag_name2 = rdata[1].tag.tag_name || ' '
+          oneData.tag_cnt2 = rdata[1].tag.tag_cnt || ' '
+        }
+
+        if (typeof rdata[2] !== 'undefined') {
+          // console.log(rdata[2])
+          oneData.from3 = rdata[2].from || ' '
+          oneData.location3 = rdata[2].location.province + ' ' + rdata[2].location.city || ' '
+          oneData.tag_name3 = rdata[2].tag.tag_name || ' '
+          oneData.tag_cnt3 = rdata[2].tag.tag_cnt || ' '
+        }
+        // console.log(oneData)
         return oneData
       }
     }
