@@ -8,8 +8,8 @@ import _ from 'lodash'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 
-axios.defaults.baseURL = 'http://127.0.0.1:8888'
-axios.defaults.timeout = 1000 * 10
+axios.defaults.baseURL = ''
+axios.defaults.timeout = 1000 * 99999999
 axios.defaults.headers['Content-Type'] = 'application/json'
 Vue.config.productionTip = false
 

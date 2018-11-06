@@ -1,6 +1,7 @@
 package phone
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"regexp"
@@ -15,7 +16,7 @@ func (p *Phone) Query_baidushoujiweishi() (pr Phone, err error) {
 	qurl := "https://www.baidu.com/s?wd=" + p.PhoneNumber
 	pr = *p
 	pr.Index = 2
-	timeout := time.Duration(6 * time.Second) //设置超时6秒
+	timeout := time.Duration(3 * time.Second) //设置超时3秒
 	client := http.Client{
 
 		Timeout: timeout,
@@ -23,10 +24,15 @@ func (p *Phone) Query_baidushoujiweishi() (pr Phone, err error) {
 	req, err := http.NewRequest("GET", qurl, nil)
 	req.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36")
 	resp, err := client.Do(req)
-	defer resp.Body.Close()
 	if err != nil {
+		fmt.Println(err)
 		return pr, err
 	}
+	defer func() {
+		if resp != nil {
+			resp.Body.Close()
+		}
+	}()
 	body, err := ioutil.ReadAll(resp.Body)
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
 	//	fmt.Println(doc)

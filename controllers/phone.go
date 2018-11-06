@@ -15,7 +15,7 @@ type PhoneController struct {
 }
 
 // @Title Login
-// @Description 手机号码固号好吗标记查询
+// @Description 手机号码固话号码标记查询
 // @Param	phonenumber		query 	string	true		"电话号码, 053266114000 18870208731 051288178411"
 // @Param	from      		query 	string	false		"标记来源渠道不选为所有渠道，可选360shoujiweishi,baidushoujiweishi,sogouhaomatong"
 // @Success 200 {string} 返回json

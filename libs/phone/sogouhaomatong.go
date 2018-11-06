@@ -6,6 +6,7 @@ package phone
 
 */
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -19,7 +20,7 @@ func (p *Phone) Query_sogouhaomatong() (pr Phone, err error) {
 	qurl := "https://www.sogou.com/web?query=" + p.PhoneNumber
 	pr = *p
 	pr.Index = 3
-	timeout := time.Duration(6 * time.Second) //设置超时6秒
+	timeout := time.Duration(3 * time.Second) //设置超时3秒
 	client := http.Client{
 
 		Timeout: timeout,
@@ -27,10 +28,15 @@ func (p *Phone) Query_sogouhaomatong() (pr Phone, err error) {
 	req, err := http.NewRequest("GET", qurl, nil)
 	req.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36")
 	resp, err := client.Do(req)
-	defer resp.Body.Close()
 	if err != nil {
+		fmt.Println(err)
 		return pr, err
 	}
+	defer func() {
+		if resp != nil {
+			resp.Body.Close()
+		}
+	}()
 	body, err := ioutil.ReadAll(resp.Body)
 	//fmt.Println(string(body))
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))

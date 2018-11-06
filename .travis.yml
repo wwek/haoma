@@ -14,9 +14,9 @@ before_deploy:
   - "GOOS=linux  GOARCH=amd64 go build -o haoma-v$VERSION-linux-amd64"
   - "GOOS=darwin GOARCH=amd64 go build -o haoma-v$VERSION-darwin-amd64"
   - "GOOS=windows GOARCH=amd64 go build -o haoma-v$VERSION-windows-amd64.exe"
-  - "tar -cvzf haoma-v$VERSION-linux-amd64.tar.gz haoma-v$VERSION-linux-amd64 gui/ conf/ 打开Web操作界面.url"
-  - "tar -cvzf haoma-v$VERSION-darwin-amd64.tar.gz haoma-v$VERSION-darwin-amd64 gui/ conf/ 打开Web操作界面.url"
-  - "tar -cvzf haoma-v$VERSION-windows-amd64.tar.gz haoma-v$VERSION-windows-amd64.exe gui/ conf/ 打开Web操作界面.url"
+  - "tar -cvzf haoma-v$VERSION-linux-amd64.tar.gz haoma-v$VERSION-linux-amd64 gui/ conf/ '打开Web操作界面.url'"
+  - "tar -cvzf haoma-v$VERSION-darwin-amd64.tar.gz haoma-v$VERSION-darwin-amd64 gui/ conf/ '打开Web操作界面.url'"
+  - "tar -cvzf haoma-v$VERSION-windows-amd64.tar.gz haoma-v$VERSION-windows-amd64.exe gui/ conf/ '打开Web操作界面.url'"
 notifications:
   email:
     - licoolgo@gmail.com

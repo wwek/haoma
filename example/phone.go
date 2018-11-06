@@ -32,17 +32,17 @@ func main() {
 	//13263387512
 	//18630879302
 
-	result, _ := p.QueryAll()
-	fmt.Println(result)
-	for _, r1 := range result {
-		//fmt.Println(n)
-		fmt.Println(r1)
-	}
+	//result, _ := p.QueryAll()
+	//fmt.Println(result)
+	//for _, r1 := range result {
+	//	//fmt.Println(n)
+	//	fmt.Println(r1)
+	//}
 
 	// result, _ := p.Query_sogouhaomatong()
 	// fmt.Println(result)
-	// result1, _ := p.Query_360shoujiweishi()
-	// fmt.Println(result1)
+	result1, _ := p.Query_360shoujiweishi()
+	fmt.Println(result1)
 	// result, _ = p.Query_baidushoujiweishi()
 	// fmt.Println(result)
 
