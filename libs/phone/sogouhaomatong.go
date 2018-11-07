@@ -6,7 +6,7 @@ package phone
 
 */
 import (
-	"fmt"
+	"github.com/astaxie/beego/logs"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -20,7 +20,7 @@ func (p *Phone) Query_sogouhaomatong() (pr Phone, err error) {
 	qurl := "https://www.sogou.com/web?query=" + p.PhoneNumber
 	pr = *p
 	pr.Index = 3
-	timeout := time.Duration(3 * time.Second) //设置超时3秒
+	timeout := time.Duration(6 * time.Second) //设置超时6秒
 	client := http.Client{
 
 		Timeout: timeout,
@@ -29,7 +29,7 @@ func (p *Phone) Query_sogouhaomatong() (pr Phone, err error) {
 	req.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36")
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println(err)
+		logs.Warn(err)
 		return pr, err
 	}
 	defer func() {
@@ -38,10 +38,20 @@ func (p *Phone) Query_sogouhaomatong() (pr Phone, err error) {
 		}
 	}()
 	body, err := ioutil.ReadAll(resp.Body)
+	bodystr := string(body)
 	//fmt.Println(string(body))
+
+	pantikey := "antispider"
+	pantikeymark := strings.Index(bodystr,pantikey)
+	if pantikeymark > 1 {
+		logs.Warn("搜狗:抓取频繁已经被屏蔽,过段时间自动解封后正常")
+		return pr, err
+	}
+
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
 	//	fmt.Println(doc)
 	if err != nil {
+		logs.Warn(err)
 		return pr, err
 	}
 
@@ -54,7 +64,7 @@ func (p *Phone) Query_sogouhaomatong() (pr Phone, err error) {
 	if "" != from2 {
 		pr.From = from2
 	}
-	bodystr := string(body)
+	//fmt.Println(pr.From)
 
 	startstr2 := "tpl491(491, \"10001001\", '', 0,\""
 	start2 := strings.Index(bodystr, startstr2)

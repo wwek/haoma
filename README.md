@@ -5,9 +5,9 @@ Haoma 是一个电话号码标记批量查询软件,用于批量查询电话号�
 ![](demo.gif)
 
 #### 快速安装使用
-* [Windows系统下载](https://github.com/wwek/haoma/releases/download/v0.2/haoma-v0.2-windows-amd64.tar.gz)
-* [Linux系统下载](https://github.com/wwek/haoma/releases/download/v0.2/haoma-v0.2-linux-amd64.tar.gz)
-* [OSX苹果系统下载](https://github.com/wwek/haoma/releases/download/v0.2/haoma-v0.2-darwin-amd64.tar.gz)
+* [Windows系统下载](https://github.com/wwek/haoma/releases/download/v0.3/haoma-v0.3-windows-amd64.tar.gz)
+* [Linux系统下载](https://github.com/wwek/haoma/releases/download/v0.3/haoma-v0.3-linux-amd64.tar.gz)
+* [OSX苹果系统下载](https://github.com/wwek/haoma/releases/download/v0.3/haoma-v0.3-darwin-amd64.tar.gz)
 * 下载后解压后运行软件
 * 浏览器打开 http://127.0.0.1:8888 即可使用
 

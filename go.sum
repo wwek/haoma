@@ -6,6 +6,7 @@ github.com/antchfx/xpath v0.0.0-20170728053731-b5c552e1acbd h1:S3Fr6QnkpW9VRjiEY
 github.com/antchfx/xpath v0.0.0-20170728053731-b5c552e1acbd/go.mod h1:Yee4kTMuNiPYJ7nSNorELQMr1J33uOpXDMByNYhvtNk=
 github.com/antchfx/xquery v0.0.0-20170730121040-eb8c3c172607 h1:BFFG6KP8ASFBg2ptWsJn8p8RDufBjBDKIxLU7BTYGOM=
 github.com/antchfx/xquery v0.0.0-20170730121040-eb8c3c172607/go.mod h1:LzD22aAzDP8/dyiCKFp31He4m2GPjl0AFyzDtZzUu9M=
+github.com/astaxie/beego v1.9.0 h1:tPzS+D1oCLi+SEb/TLNRNYpCjaMVfAGoy9OTLwS5ul4=
 github.com/astaxie/beego v1.9.0/go.mod h1:0R4++1tUqERR0WYFWdfkcrsyoVBCG4DgpDGokT3yb+U=
 golang.org/x/net v0.0.0-20170824174428-57efc9c3d9f9 h1:5dWUD2H++BOa8+DJzqUYOpTtpAWE6OZZJWhf1BgJR48=
 golang.org/x/net v0.0.0-20170824174428-57efc9c3d9f9/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
