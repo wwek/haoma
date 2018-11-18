@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	p := phone.New("18870208731")
+	p := phone.New("15555555555")
 	// p := phone.New("18870208731")
 	// p := phone.New("051288178411")
 	//053266114000
@@ -38,10 +38,10 @@ func main() {
 	//	fmt.Println(r1)
 	//}
 
-	result, _ := p.Query_sogouhaomatong()
-	fmt.Println(result)
-	//result1, _ := p.Query_360shoujiweishi()
-	//fmt.Println(result1)
+	//result, _ := p.Query_sogouhaomatong()
+	//fmt.Println(result)
+	result1, _ := p.Query_360shoujiweishi()
+	fmt.Println(result1)
 	// result, _ = p.Query_baidushoujiweishi()
 	// fmt.Println(result)
 

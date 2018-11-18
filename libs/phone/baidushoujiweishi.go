@@ -48,8 +48,8 @@ func (p *Phone) Query_baidushoujiweishi() (pr Phone, err error) {
 		pr.Location.City = sfcs[1]     //城市
 	}
 
-	pr.Tag.TagName = doc.Find(".op_fraudphone_label.op_fraudphone_label_tx.c-gap-right-small").Text() //标记
-	tagCnts := doc.Find(".op_fraudphone_word").Text()                                                 //标记人数 位
+	pr.Tag.TagName = doc.Find(".op_fraudphone_label").Text() //标记
+	tagCnts := doc.Find(".op_fraudphone_word").Text()    //标记人数 位
 	tagCntsRe := regexp.MustCompile(`\d+`)
 	tagCnt, err := strconv.Atoi(tagCntsRe.FindString(tagCnts))
 	pr.Tag.TagCnt = tagCnt

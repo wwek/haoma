@@ -21,6 +21,7 @@ type Phone struct {
 	Sp          string   `json:"sp"`           //运营商
 	Card        string   `json:"card"`         //卡类型
 	From        string   `json:"from"`         //来源渠道
+	//Org         string   `json:"org"`          // 组织
 	Location    Location `json:"location"`     //归属地
 	Tag         Tag      `json:"tag"`          //标记
 }

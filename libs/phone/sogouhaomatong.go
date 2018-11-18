@@ -9,6 +9,7 @@ import (
 	"github.com/astaxie/beego/logs"
 	"io/ioutil"
 	"net/http"
+	"net/http/cookiejar"
 	"strconv"
 	"strings"
 	"time"
@@ -20,10 +21,11 @@ func (p *Phone) Query_sogouhaomatong() (pr Phone, err error) {
 	qurl := "https://www.sogou.com/web?query=" + p.PhoneNumber
 	pr = *p
 	pr.Index = 3
+	cj, _ := cookiejar.New(nil)
 	timeout := time.Duration(6 * time.Second) //设置超时6秒
 	client := http.Client{
-
 		Timeout: timeout,
+		Jar: cj,
 	}
 	req, err := http.NewRequest("GET", qurl, nil)
 	req.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36")
